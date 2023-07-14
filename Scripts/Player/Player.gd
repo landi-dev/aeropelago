@@ -23,7 +23,6 @@ var jump_strength : float; # Assigned in _ready().
 
 func _ready():
 	
-	print("this is a test")
 	gravity = (2 * jump_height) / pow(jump_peak_time, 2);
 	jump_strength = sqrt(2 * gravity * jump_height);
 	
