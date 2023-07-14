@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dljdrg3cphrdx"]
+
+[ext_resource type="PackedScene" uid="uid://cyarp1pfkk4eu" path="res://Scenes/Player/Player.tscn" id="1_02s70"]
+[ext_resource type="Texture2D" uid="uid://dopter5yp23ta" path="res://Assets/Textures/Prototype Pack/PNG/Dark/texture_02.png" id="2_rsguk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr3fo"]
+albedo_texture = ExtResource("2_rsguk")
+
+[node name="Main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_02s70")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25, 0)
+light_color = Color(1, 0.994, 0.99, 1)
+shadow_enabled = true
+shadow_opacity = 0.5
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+size = Vector3(25, 2, 25)
+material = SubResource("StandardMaterial3D_yr3fo")

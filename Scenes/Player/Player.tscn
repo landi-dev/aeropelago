@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyarp1pfkk4eu"]
+
+[ext_resource type="PackedScene" uid="uid://d0on75cnym5og" path="res://Scenes/Player/Model.tscn" id="1_dsu1l"]
+[ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_rigg6"]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerSpringArm.gd" id="3_whr85"]
+[ext_resource type="Script" path="res://Scripts/Player/States/StateManager.gd" id="4_0w724"]
+[ext_resource type="Script" path="res://Scripts/Player/States/IdleState.gd" id="5_1xyqq"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rlkvu"]
+height = 3.5
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_rigg6")
+
+[node name="FloorRayCast" type="RayCast3D" parent="."]
+target_position = Vector3(0, -1.5, 0)
+collide_with_areas = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+shape = SubResource("CylinderShape3D_rlkvu")
+
+[node name="Model" parent="." instance=ExtResource("1_dsu1l")]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+spring_length = 10.0
+script = ExtResource("3_whr85")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+
+[node name="StateManager" type="Node" parent="."]
+script = ExtResource("4_0w724")
+
+[node name="Idle" type="Node" parent="StateManager"]
+script = ExtResource("5_1xyqq")
+
+[node name="Sprint" type="Node" parent="."]
+
+[node name="Jump" type="Node" parent="."]
+
+[node name="Timer" type="Timer" parent="Jump"]
+
+[node name="Fall" type="Node" parent="."]
+
+[node name="Land" type="Node" parent="."]
