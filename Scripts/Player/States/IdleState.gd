@@ -48,7 +48,7 @@ func physics_process(delta : float) -> int:
 		player.velocity.z = lerp(player.velocity.z, 0.0, player.friction * delta);
 	
 	# If the player is moving, enter the SPRINT state.
-	if abs(player.velocity.x) >= 1.0 or abs(player.velocity.z) >= 1.0:
+	if abs(player.move_direction.x) >= 1.0 or abs(player.move_direction.z) >= 1.0:
 		
 		return STATE.SPRINT;
 	

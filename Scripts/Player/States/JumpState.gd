@@ -7,8 +7,8 @@ func enter() -> void:
 	# This calls the base class enter function, which is necessary here
 	# to make sure the animation switches
 	super.enter();
-	#player.y_velocity = player.jump_strength;
-	jump_timer.start();
+	player.y_velocity = player.jump_strength;
+	#jump_timer.start();
 
 func input(event) -> int:
 	
