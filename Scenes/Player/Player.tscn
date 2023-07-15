@@ -52,8 +52,10 @@ animation_name = null
 script = ExtResource("7_1jtvb")
 animation_name = null
 
-[node name="Timer" type="Timer" parent="StateManager/Jump"]
+[node name="JumpTimer" type="Timer" parent="StateManager/Jump"]
 
 [node name="Fall" type="Node" parent="StateManager"]
 
 [node name="Land" type="Node" parent="StateManager"]
+
+[connection signal="timeout" from="StateManager/Jump/JumpTimer" to="StateManager/Jump" method="_on_JumpTimer_timeout"]

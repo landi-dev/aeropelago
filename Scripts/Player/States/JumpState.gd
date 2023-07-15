@@ -49,3 +49,7 @@ func physics_process(delta : float) -> int:
 	player.move_and_slide();
 	
 	return STATE.NULL;
+
+func _on_JumpTimer_timeout() -> void:
+	
+	player.y_velocity = player.jump_strength;
