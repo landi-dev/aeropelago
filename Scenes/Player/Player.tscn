@@ -38,11 +38,11 @@ script = ExtResource("4_0w724")
 
 [node name="Idle" type="Node" parent="StateManager"]
 script = ExtResource("5_1xyqq")
-animation_name = "idle_loop"
+animation_name = "idle"
 
 [node name="Sprint" type="Node" parent="StateManager"]
 script = ExtResource("6_tnkvp")
-animation_name = "walk_loop"
+animation_name = "walk"
 
 [node name="Jump" type="Node" parent="StateManager"]
 script = ExtResource("7_1jtvb")

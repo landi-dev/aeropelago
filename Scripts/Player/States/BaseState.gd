@@ -11,7 +11,7 @@ enum STATE {
 };
 
 @export var animation_name : String;
-var player : Player;
+@export var player : Player;
 
 func enter() -> void:
 	

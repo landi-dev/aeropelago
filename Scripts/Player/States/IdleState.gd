@@ -39,16 +39,16 @@ func physics_process(delta : float) -> int:
 	#player.velocity = player.velocity.linear_interpolate(player.move_direction * sprint_speed, acceleration * delta)
 	
 	# If the character is not currently moving in a given direction, slow them down by friction.
-	if player.move_direction.x == 0:
+	if player.move_direction.x == 0.0:
 		
 		player.velocity.x = lerp(player.velocity.x, 0.0, player.friction * delta);
 	
-	if player.move_direction.z == 0:
+	if player.move_direction.z == 0.0:
 		
 		player.velocity.z = lerp(player.velocity.z, 0.0, player.friction * delta);
 	
 	# If the player is moving, enter the SPRINT state.
-	if abs(player.velocity.x) >= 1 or abs(player.velocity.z) >= 1:
+	if abs(player.velocity.x) >= 1.0 or abs(player.velocity.z) >= 1.0:
 		
 		return STATE.SPRINT;
 	

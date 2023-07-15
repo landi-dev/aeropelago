@@ -16,7 +16,7 @@ extends CharacterBody3D;
 @export var jump_peak_time : float = 0.25 * 60;
 @warning_ignore("narrowing_conversion")
 @export var jump_height : int = (0.98 * 60) * 3.25;
-@export var terminal_velocity : float = 54;
+@export var terminal_velocity : float = 54.0;
 
 ##var velocity : Vector3 = Vector3.ZERO # The current velocity of the player.
 var y_velocity : float = 0.0; # Separate Y velocity makes calculations easier.

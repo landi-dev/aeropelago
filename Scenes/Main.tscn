@@ -9,6 +9,12 @@ albedo_texture = ExtResource("2_rsguk")
 [node name="Main" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_02s70")]
+sprint_speed = 10.0
+friction = 2.0
+acceleration = 10.0
+jump_peak_time = 15.0
+jump_height = 191
+terminal_velocity = 54.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25, 0)

@@ -38,14 +38,14 @@ func physics_process(delta : float) -> int:
 	# If the character is not currently moving in a given direction, slow them down by friction.
 	if player.move_direction.x == 0:
 		
-		player.velocity.x = lerp(player.velocity.x, 0, player.friction * delta);
+		player.velocity.x = lerp(player.velocity.x, 0.0, player.friction * delta);
 	
 	if player.move_direction.z == 0:
 		
-		player.velocity.z = lerp(player.velocity.z, 0, player.friction * delta);
+		player.velocity.z = lerp(player.velocity.z, 0.0, player.friction * delta);
 	
 	# Rotate the model if the player is moving.
-	if abs(player.velocity.x) == 0 and abs(player.velocity.z) == 0:
+	if abs(player.velocity.x) == 0.0 and abs(player.velocity.z) == 0.0:
 		
 		return STATE.IDLE;
 	
