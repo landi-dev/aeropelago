@@ -10,7 +10,7 @@ extends CharacterBody3D;
 @onready var floor_raycast : RayCast3D = get_node("FloorRayCast");
 
 @export var sprint_speed : float = 10.0;
-export var air_speed : float = 10.0;
+@export var air_speed : float = 10.0;
 @export var friction : float = 2.0;
 @export var acceleration : float = 10.0;
 @export var jump_peak_time : float = 0.25 * 60;
