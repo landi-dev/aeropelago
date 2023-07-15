@@ -5,7 +5,6 @@ func input(event : InputEvent) -> int:
 	# If the player presses space, enter JUMP state.
 	if Input.is_action_just_pressed("jump"):
 		
-		print("JUMP");
 		return STATE.JUMP;
 	
 	# Reset the move direction.
@@ -16,7 +15,7 @@ func input(event : InputEvent) -> int:
 	# Update the movement relative to the camera.
 	player.move_direction = player.move_direction.rotated(Vector3.UP, player.spring_arm.rotation.y).normalized();
 	
-	return STATE.NULL
+	return STATE.NULL;
 
 func physics_process(delta : float) -> int:
 	
@@ -55,6 +54,6 @@ func physics_process(delta : float) -> int:
 	
 	# Finally, adjust the y-velocity after x and z calculations have been made.
 	player.velocity.y = player.y_velocity;
-	player.move_and_slide()
+	player.move_and_slide();
 	
 	return STATE.NULL;
