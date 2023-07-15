@@ -1,0 +1,97 @@
+[gd_scene format=3 uid="uid://bv4dc2tdfudf3"]
+
+[node name="PATDock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "PAT"
+
+[node name="LineEdit" type="LineEdit" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "PAT"
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 25.0
+grow_horizontal = 2
+columns = 2
+
+[node name="UserLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Username"
+
+[node name="UserText" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "Sociopathix"
+
+[node name="PATLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Private Access Token"
+
+[node name="PATLineEdit" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "PAT"
+
+[node name="SSHPubLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "SSH Public Key Path"
+
+[node name="SSHPubText" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "C:/Users/Andi/.ssh/id_rsa.pub"
+
+[node name="SSHPrivLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "SSH Private Key Path"
+
+[node name="SSHPrivText" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "C:/Users/Andi/.ssh/id_rsa"
+
+[node name="SSHPassLabel" type="Label" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "SSH Passphrase"
+
+[node name="SSHPassText" type="LineEdit" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+placeholder_text = "(Usually Empty)"
+
+[node name="SaveButton" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Save
+"

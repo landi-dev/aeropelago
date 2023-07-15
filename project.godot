@@ -20,6 +20,10 @@ config/icon="res://icon.png"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/pat_helper/plugin.cfg")
+
 [input]
 
 jump={
