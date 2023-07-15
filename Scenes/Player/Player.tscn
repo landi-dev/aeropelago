@@ -46,7 +46,6 @@ script = ExtResource("5_1xyqq")
 
 [node name="Sprint" type="Node" parent="StateManager"]
 script = ExtResource("6_tnkvp")
-animation_name = null
 
 [node name="Jump" type="Node" parent="StateManager"]
 script = ExtResource("7_1jtvb")

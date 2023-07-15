@@ -24,7 +24,7 @@ func physics_process(delta : float) -> int:
 		
 		player.y_velocity = -0.01;
 	
-	elif player.down_raycast.is_colliding():
+	elif player.floor_raycast.is_colliding():
 		
 		player.y_velocity = clamp(player.y_velocity - player.gravity, -player.terminal_velocity, player.terminal_velocity);
 	
