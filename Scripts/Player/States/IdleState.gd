@@ -20,13 +20,13 @@ func input(event : InputEvent) -> int:
 func physics_process(delta : float) -> int:
 	
 	# Add a small amount of gravity to clamp the player down to the floor.
-	if player.is_on_floor():
-		
-		player.y_velocity = -0.01;
+	#if player.is_on_floor():
+	#	
+	#	player.y_velocity = -0.01;
 	
 	# If the player is on the ground or close to the ground, adjust y_velocity
 	# by gravity, limited to terminal velocity.
-	elif player.floor_raycast.is_colliding():
+	if player.floor_raycast.is_colliding():
 		
 		player.y_velocity = clamp(player.y_velocity - player.gravity, -player.terminal_velocity, player.terminal_velocity);
 	

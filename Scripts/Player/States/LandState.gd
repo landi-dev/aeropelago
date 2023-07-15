@@ -21,11 +21,11 @@ func input(event : InputEvent) -> int:
 func physics_process(delta : float) -> int:
 	
 	# Add a small amount of gravity to clamp the player down.
-	if player.is_on_floor():
-		
-		player.y_velocity = -0.01;
+	#if player.is_on_floor():
+	#	
+	#	player.y_velocity = -0.01;
 	
-	elif player.floor_raycast.is_colliding():
+	if player.floor_raycast.is_colliding():
 		
 		player.y_velocity = clamp(player.y_velocity - player.gravity, -player.terminal_velocity, player.terminal_velocity);
 	
@@ -43,7 +43,7 @@ func physics_process(delta : float) -> int:
 		player.velocity.z = lerp(player.velocity.z, 0.0, player.friction * delta);
 	
 	# If the player isn't moving, change to IDLE state.
-	if abs(player.velocity.x) == 0.0 and abs(player.velocity.z) == 0.0 and !player.animation_player.is_playing():
+	if abs(player.velocity.x) == 0.0 and abs(player.velocity.z) == 0.0 and not player.animation_player.is_playing():
 		
 		return STATE.IDLE;
 	
@@ -56,7 +56,7 @@ func physics_process(delta : float) -> int:
 	player.move_and_slide();
 	
 	# If the player is fallling, change to FALL state.
-	if !player.is_on_floor():
+	if not player.is_on_floor():
 		
 		return STATE.FALL
 	

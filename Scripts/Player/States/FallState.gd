@@ -34,7 +34,7 @@ func physics_process(delta : float) -> int:
 	player.move_and_slide();
 	
 	# If the player hits the ground, change the state to LAND.
-	if player.floor_raycast.is_colliding():
+	if player.is_on_floor():
 		
 		return STATE.LAND;
 	
