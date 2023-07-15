@@ -15,12 +15,6 @@ height = 3.5
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_rigg6")
-sprint_speed = null
-friction = null
-acceleration = null
-jump_peak_time = null
-jump_height = null
-terminal_velocity = null
 
 [node name="FloorRayCast" type="RayCast3D" parent="."]
 target_position = Vector3(0, -1.5, 0)
@@ -44,12 +38,15 @@ script = ExtResource("4_0w724")
 
 [node name="Idle" type="Node" parent="StateManager"]
 script = ExtResource("5_1xyqq")
+animation_name = "idle_loop"
 
 [node name="Sprint" type="Node" parent="StateManager"]
 script = ExtResource("6_tnkvp")
+animation_name = "walk_loop"
 
 [node name="Jump" type="Node" parent="StateManager"]
 script = ExtResource("7_1jtvb")
+animation_name = "jump_up"
 
 [node name="JumpTimer" type="Timer" parent="StateManager/Jump"]
 
@@ -58,5 +55,6 @@ script = ExtResource("8_xsxk4")
 
 [node name="Land" type="Node" parent="StateManager"]
 script = ExtResource("9_keutr")
+animation_name = "jump_down"
 
 [connection signal="timeout" from="StateManager/Jump/JumpTimer" to="StateManager/Jump" method="_on_JumpTimer_timeout"]
