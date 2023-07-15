@@ -21,12 +21,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "PAT"
 
-[node name="TextEdit" type="RichTextLabel" parent="VBoxContainer"]
+[node name="TextEdit" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-focus_mode = 2
-text = "
-"
-fit_content = true
-autowrap_mode = 1
-selection_enabled = true
+placeholder_text = "PAT"
+editable = false
