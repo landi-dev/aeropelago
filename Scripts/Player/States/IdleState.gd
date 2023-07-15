@@ -6,7 +6,7 @@ func input(event : InputEvent) -> int:
 	if Input.is_action_just_pressed("jump"):
 		
 		print("JUMP");
-		#return STATE.JUMP;
+		return STATE.JUMP;
 	
 	# Reset the move direction.
 	player.move_direction = Vector3.ZERO;
@@ -22,22 +22,20 @@ func input(event : InputEvent) -> int:
 func physics_process(delta : float) -> int:
 	
 	# Add a small amount of gravity to clamp the player down to the floor.
-	#if player.is_on_floor():
-	#	
-	#	player.y_velocity = -0.01;
+	if player.is_on_floor():
+		
+		player.y_velocity = -0.01;
 	
 	# If the player is on the ground or close to the ground, adjust y_velocity
 	# by gravity, limited to terminal velocity.
-	if player.floor_raycast.is_colliding():
+	elif player.floor_raycast.is_colliding():
 		
 		player.y_velocity = clamp(player.y_velocity - player.gravity, -player.terminal_velocity, player.terminal_velocity);
 	
 	# Otherwise, enter the FALL state.
 	else:
 		
-		print("FALL");
-		return STATE.NULL;
-		#return STATE.FALL;
+		return STATE.FALL;
 	
 	# Adjust the player by the move direction, multiplied by speed.
 	#player.velocity = player.velocity.linear_interpolate(player.move_direction * sprint_speed, acceleration * delta)
@@ -53,13 +51,11 @@ func physics_process(delta : float) -> int:
 	
 	# If the player is moving, enter the SPRINT state.
 	if abs(player.velocity.x) >= 1 or abs(player.velocity.z) >= 1:
-		print("SPRINT");
-		return STATE.NULL;
-		#return STATE.SPRINT;
+		
+		return STATE.SPRINT;
 	
 	# Finally, adjust the y-velocity after x and z calculations have been made.
 	player.velocity.y = player.y_velocity;
 	player.move_and_slide()
 	
-	print("IDLE");
 	return STATE.NULL;

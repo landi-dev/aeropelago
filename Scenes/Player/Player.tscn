@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyarp1pfkk4eu"]
+[gd_scene load_steps=8 format=3 uid="uid://cyarp1pfkk4eu"]
 
 [ext_resource type="PackedScene" uid="uid://d0on75cnym5og" path="res://Scenes/Player/Model.tscn" id="1_dsu1l"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_rigg6"]
 [ext_resource type="Script" path="res://Scripts/Player/PlayerSpringArm.gd" id="3_whr85"]
 [ext_resource type="Script" path="res://Scripts/Player/States/StateManager.gd" id="4_0w724"]
 [ext_resource type="Script" path="res://Scripts/Player/States/IdleState.gd" id="5_1xyqq"]
+[ext_resource type="Script" path="res://Scripts/Player/States/SprintState.gd" id="6_tnkvp"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rlkvu"]
 height = 3.5
@@ -35,12 +36,13 @@ script = ExtResource("4_0w724")
 [node name="Idle" type="Node" parent="StateManager"]
 script = ExtResource("5_1xyqq")
 
-[node name="Sprint" type="Node" parent="."]
+[node name="Sprint" type="Node" parent="StateManager"]
+script = ExtResource("6_tnkvp")
 
-[node name="Jump" type="Node" parent="."]
+[node name="Jump" type="Node" parent="StateManager"]
 
-[node name="Timer" type="Timer" parent="Jump"]
+[node name="Timer" type="Timer" parent="StateManager/Jump"]
 
-[node name="Fall" type="Node" parent="."]
+[node name="Fall" type="Node" parent="StateManager"]
 
-[node name="Land" type="Node" parent="."]
+[node name="Land" type="Node" parent="StateManager"]
