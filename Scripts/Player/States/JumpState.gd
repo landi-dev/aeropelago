@@ -1,6 +1,6 @@
 extends BaseState;
 
-@onready var jump_timer : Timer = get_node("Timer");
+@onready var jump_timer : Timer = get_node("JumpTimer");
 
 func enter() -> void:
 	
