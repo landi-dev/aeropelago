@@ -42,6 +42,7 @@ script = ExtResource("4_0w724")
 
 [node name="Idle" type="Node" parent="StateManager"]
 script = ExtResource("5_1xyqq")
+animation_name = null
 
 [node name="Sprint" type="Node" parent="StateManager"]
 script = ExtResource("6_tnkvp")

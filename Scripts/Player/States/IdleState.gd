@@ -10,8 +10,7 @@ func input(event : InputEvent) -> int:
 	
 	# Reset the move direction.
 	player.move_direction = Vector3.ZERO;
-	# Let's you have fine tuned controls, really good for controller support.
-	# X is the left-right axis, Z is the forward-back axis.
+	# Take movement input.
 	player.move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left");
 	player.move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward");
 	# Update the movement relative to the camera.
