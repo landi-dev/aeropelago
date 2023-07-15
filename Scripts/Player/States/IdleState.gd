@@ -30,6 +30,10 @@ func physics_process(delta : float) -> int:
 		
 		return STATE.FALL;
 	
+	else:
+		
+		player.y_velocity = 0.0;
+	
 	# Adjust the player by the move direction, multiplied by speed.
 	#player.velocity = player.velocity.linear_interpolate(player.move_direction * sprint_speed, acceleration * delta)
 	
