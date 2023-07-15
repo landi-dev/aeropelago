@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cyarp1pfkk4eu"]
+[gd_scene load_steps=11 format=3 uid="uid://cyarp1pfkk4eu"]
 
 [ext_resource type="PackedScene" uid="uid://d0on75cnym5og" path="res://Scenes/Player/Model.tscn" id="1_dsu1l"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_rigg6"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/States/SprintState.gd" id="6_tnkvp"]
 [ext_resource type="Script" path="res://Scripts/Player/States/JumpState.gd" id="7_1jtvb"]
 [ext_resource type="Script" path="res://Scripts/Player/States/FallState.gd" id="8_xsxk4"]
+[ext_resource type="Script" path="res://Scripts/Player/States/LandState.gd" id="9_keutr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rlkvu"]
 height = 3.5
@@ -56,5 +57,6 @@ script = ExtResource("7_1jtvb")
 script = ExtResource("8_xsxk4")
 
 [node name="Land" type="Node" parent="StateManager"]
+script = ExtResource("9_keutr")
 
 [connection signal="timeout" from="StateManager/Jump/JumpTimer" to="StateManager/Jump" method="_on_JumpTimer_timeout"]
