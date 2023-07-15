@@ -14,6 +14,7 @@ extends CharacterBody3D;
 @export var friction : float = 2.0;
 @export var acceleration : float = 10.0;
 @export var jump_peak_time : float = 0.25 * 60;
+@warning_ignore("narrowing_conversion")
 @export var jump_height : int = (0.98 * 60) * 3.25;
 @export var terminal_velocity : float = 54;
 
