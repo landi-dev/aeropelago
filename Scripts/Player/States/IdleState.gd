@@ -19,19 +19,14 @@ func input(event : InputEvent) -> int:
 
 func physics_process(delta : float) -> int:
 	
-	# Add a small amount of gravity to clamp the player down to the floor.
-	#if player.is_on_floor():
-	#	
-	#	player.y_velocity = -0.01;
-	
 	# If the player is on the ground or close to the ground, adjust y_velocity
 	# by gravity, limited to terminal velocity.
-	if player.floor_raycast.is_colliding():
+	if player.floor_raycast.is_colliding() and not player.is_on_floor():
 		
 		player.y_velocity = clamp(player.y_velocity - player.gravity, -player.terminal_velocity, player.terminal_velocity);
 	
 	# Otherwise, enter the FALL state.
-	else:
+	elif not player.is_on_floor():
 		
 		return STATE.FALL;
 	
@@ -48,7 +43,7 @@ func physics_process(delta : float) -> int:
 		player.velocity.z = lerp(player.velocity.z, 0.0, player.friction * delta);
 	
 	# If the player is moving, enter the SPRINT state.
-	if abs(player.move_direction.x) >= 1.0 or abs(player.move_direction.z) >= 1.0:
+	if abs(player.move_direction.x) > 0.0 or abs(player.move_direction.z) > 0.0:
 		
 		return STATE.SPRINT;
 	

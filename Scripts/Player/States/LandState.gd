@@ -9,7 +9,6 @@ func input(event : InputEvent) -> int:
 	
 	# Reset the move direction.
 	player.move_direction = Vector3.ZERO;
-	player.velocity = Vector3.ZERO;
 	# Take movement input.
 	player.move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left");
 	player.move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward");
@@ -20,10 +19,7 @@ func input(event : InputEvent) -> int:
 
 func physics_process(delta : float) -> int:
 	
-	# Add a small amount of gravity to clamp the player down.
-	#if player.is_on_floor():
-	#	
-	#	player.y_velocity = -0.01;
+	player.velocity = Vector3.ZERO;
 	
 	if player.floor_raycast.is_colliding():
 		
@@ -43,11 +39,11 @@ func physics_process(delta : float) -> int:
 		player.velocity.z = lerp(player.velocity.z, 0.0, player.friction * delta);
 	
 	# If the player isn't moving, change to IDLE state.
-	if abs(player.velocity.x) == 0.0 and abs(player.velocity.z) == 0.0 and not player.animation_player.is_playing():
+	if abs(player.velocity.x) == 0.0 and abs(player.velocity.z) == 0.0 and player.move_direction == Vector3.ZERO and not player.animation_player.is_playing():
 		
 		return STATE.IDLE;
 	
-	elif !player.animation_player.is_playing():
+	elif not player.animation_player.is_playing():
 		
 		return STATE.SPRINT;
 	
