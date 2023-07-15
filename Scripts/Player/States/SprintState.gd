@@ -22,35 +22,35 @@ func physics_process(delta : float) -> int:
 	# Add a small amount of gravity to clamp the player down.
 	if player.is_on_floor():
 		
-		player.y_velocity = -0.01
+		player.y_velocity = -0.01;
 	
 	elif player.down_raycast.is_colliding():
 		
-		player.y_velocity = clamp(player.y_velocity - player.gravity, -player.terminal_velocity, player.terminal_velocity)
+		player.y_velocity = clamp(player.y_velocity - player.gravity, -player.terminal_velocity, player.terminal_velocity);
 	
 	else:
 		
-		return STATE.FALL
+		return STATE.FALL;
 	
 	# Adjust the player by the move direction multiplied by speed, incremented by acceleration.
-	player.velocity = player.velocity.lerp(player.move_direction * player.sprint_speed, player.acceleration * delta)
+	player.velocity = player.velocity.lerp(player.move_direction * player.sprint_speed, player.acceleration * delta);
 	
 	# If the character is not currently moving in a given direction, slow them down by friction.
 	if player.move_direction.x == 0:
 		
-		player.velocity.x = lerp(player.velocity.x, 0, player.friction * delta)
+		player.velocity.x = lerp(player.velocity.x, 0, player.friction * delta);
 	
 	if player.move_direction.z == 0:
 		
-		player.velocity.z = lerp(player.velocity.z, 0, player.friction * delta)
+		player.velocity.z = lerp(player.velocity.z, 0, player.friction * delta);
 	
 	# Rotate the model if the player is moving.
 	if abs(player.velocity.x) == 0 and abs(player.velocity.z) == 0:
 		
-		return STATE.IDLE
+		return STATE.IDLE;
 	
 	# Finally, adjust the y-velocity after x and z calculations have been made.
-	player.velocity.y = player.y_velocity
-	player.move_and_slide()
+	player.velocity.y = player.y_velocity;
+	player.move_and_slide();
 	
-	return STATE.NULL
+	return STATE.NULL;

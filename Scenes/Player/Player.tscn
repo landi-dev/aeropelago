@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyarp1pfkk4eu"]
+[gd_scene load_steps=9 format=3 uid="uid://cyarp1pfkk4eu"]
 
 [ext_resource type="PackedScene" uid="uid://d0on75cnym5og" path="res://Scenes/Player/Model.tscn" id="1_dsu1l"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.gd" id="1_rigg6"]
@@ -6,12 +6,19 @@
 [ext_resource type="Script" path="res://Scripts/Player/States/StateManager.gd" id="4_0w724"]
 [ext_resource type="Script" path="res://Scripts/Player/States/IdleState.gd" id="5_1xyqq"]
 [ext_resource type="Script" path="res://Scripts/Player/States/SprintState.gd" id="6_tnkvp"]
+[ext_resource type="Script" path="res://Scripts/Player/States/JumpState.gd" id="7_1jtvb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rlkvu"]
 height = 3.5
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_rigg6")
+sprint_speed = null
+friction = null
+acceleration = null
+jump_peak_time = null
+jump_height = null
+terminal_velocity = null
 
 [node name="FloorRayCast" type="RayCast3D" parent="."]
 target_position = Vector3(0, -1.5, 0)
@@ -38,8 +45,11 @@ script = ExtResource("5_1xyqq")
 
 [node name="Sprint" type="Node" parent="StateManager"]
 script = ExtResource("6_tnkvp")
+animation_name = null
 
 [node name="Jump" type="Node" parent="StateManager"]
+script = ExtResource("7_1jtvb")
+animation_name = null
 
 [node name="Timer" type="Timer" parent="StateManager/Jump"]
 
