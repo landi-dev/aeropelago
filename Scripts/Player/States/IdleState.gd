@@ -19,6 +19,8 @@ func input(event : InputEvent) -> int:
 
 func physics_process(delta : float) -> int:
 	
+	player.velocity = Vector3.ZERO;
+	
 	# If the player is on the ground or close to the ground, adjust y_velocity
 	# by gravity, limited to terminal velocity.
 	if player.floor_raycast.is_colliding() and not player.is_on_floor():
@@ -29,6 +31,10 @@ func physics_process(delta : float) -> int:
 	elif not player.is_on_floor():
 		
 		return STATE.FALL;
+	
+	else:
+		
+		player.y_velocity = 0.0;
 	
 	# Adjust the player by the move direction, multiplied by speed.
 	#player.velocity = player.velocity.linear_interpolate(player.move_direction * sprint_speed, acceleration * delta)
