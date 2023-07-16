@@ -21,13 +21,20 @@ func physics_process(delta : float) -> int:
 	
 	player.velocity = Vector3.ZERO;
 	
-	if player.floor_raycast.is_colliding():
+	# If the player is on the ground or close to the ground, adjust y_velocity
+	# by gravity, limited to terminal velocity.
+	if player.floor_raycast.is_colliding() and not player.is_on_floor():
 		
 		player.y_velocity = clamp(player.y_velocity - player.gravity, -player.terminal_velocity, player.terminal_velocity);
 	
-	else:
+	# Otherwise, enter the FALL state.
+	elif not player.is_on_floor():
 		
 		return STATE.FALL;
+	
+	else:
+		
+		player.y_velocity = 0.0;
 	
 	# If the character is not currently moving in a given direction, slow them down by friction.
 	if player.move_direction.x == 0.0:
