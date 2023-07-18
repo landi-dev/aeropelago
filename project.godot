@@ -15,14 +15,9 @@ run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.png"
 
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
-
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/pat_helper/plugin.cfg")
+enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
 
 [input]
 
