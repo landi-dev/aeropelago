@@ -26,7 +26,11 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
+<<<<<<< HEAD
 enabled=PackedStringArray("res://addons/pat_helper/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg", "res://addons/multimesh_scatter/plugin.cfg")
+=======
+enabled=PackedStringArray("res://addons/pat_helper/plugin.cfg", "res://addons/multimesh_scatter/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg")
+>>>>>>> 1a4d9cbc68dc8af244d4161c779722ffa9dd3212
 
 [input]
 
