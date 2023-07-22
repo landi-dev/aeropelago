@@ -76,7 +76,7 @@ void fragment()
 	view_pos /= view_pos.w;
 	vec3 existingNormal = normalize(cross( dFdx(view_pos.xyz), dFdy(view_pos.xyz)));
 	
-	float normalDot = clamp(dot(existingNormal.xyz, viewNormal), 0.0, 1.0);
+	float normalDot = clamp(dot(NORMAL.xyz, viewNormal), 0.0, 1.0);
 	float foamDistance = mix(foam_max_distance, foam_min_distance, normalDot);
 	
 	float foamDepth = clamp(depth / foamDistance, 0.0, 1.0);
