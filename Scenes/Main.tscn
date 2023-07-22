@@ -27,11 +27,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(25, 2, 25)
 material = SubResource("StandardMaterial3D_yr3fo")
 
-[node name="Floor2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 4.99122)
-size = Vector3(25, 0.25, 5)
-material = SubResource("StandardMaterial3D_yr3fo")
-
 [node name="Floor3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9.961)
 size = Vector3(25, 1, 5)
