@@ -24,6 +24,7 @@ uniform vec3 surface_noise_scroll = vec3(0.03, 0.03, 0.0);
 uniform float surface_noise_cutoff: hint_range(0, 1) = 0.777;
 uniform float surface_distortion_amount: hint_range(0, 1) = 0.27;
 
+uniform vec3 fresnel_color : source_color;
 uniform vec4 _DepthGradientShallow: source_color = vec4(0.325, 0.807, 0.971, 0.725);
 uniform vec4 _DepthGradientDeep: source_color = vec4(0.086, 0.407, 1, 0.749);
 uniform float _DepthMaxDistance: hint_range(0, 1) = 1.0;
@@ -35,6 +36,11 @@ varying vec3 viewNormal;
 
 varying float height;
 varying vec3 world_pos;
+
+float fresnel(float amount, vec3 normal, vec3 view)
+{
+	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0)), amount);
+}
 
 vec4 alphaBlend(vec4 top, vec4 bottom)
 {
@@ -89,9 +95,12 @@ void fragment()
 	float waterDepth = clamp(depth / _DepthMaxDistance, 0.0, 1.0) * _DepthFactor;
 	vec4 waterColor = mix(_DepthGradientShallow, _DepthGradientDeep, waterDepth);
 	
+	float fresnel = fresnel(5.0, NORMAL, VIEW);
+	vec4 water_color = vec4(mix(waterColor.rgb, fresnel_color, fresnel), 1.0);
+	
 	vec4 surfaceNoiseColor = foam_color;
 	surfaceNoiseColor.a *= surfaceNoiseAmount;
-	vec4 color = alphaBlend(surfaceNoiseColor, waterColor);
+	vec4 color = alphaBlend(surfaceNoiseColor, water_color);
 	
 	ROUGHNESS = roughness;
 	METALLIC = metallic;

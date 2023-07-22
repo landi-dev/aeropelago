@@ -1,40 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://bnm8b4krq67gw"]
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bnm8b4krq67gw"]
 
 [ext_resource type="Shader" path="res://Shaders/ToonWater.gdshader" id="1_tkugl"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_tne0c"]
-noise_type = 3
-seed = 228
-frequency = 0.005
-fractal_type = 2
-fractal_octaves = 4
-domain_warp_amplitude = 10.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ksdx8"]
-seamless = true
-noise = SubResource("FastNoiseLite_tne0c")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ifwin"]
-noise_type = 2
-frequency = 0.005
-fractal_type = 2
-fractal_octaves = 1
-cellular_distance_function = 3
-cellular_return_type = 6
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ciyvp"]
-seamless = true
-noise = SubResource("FastNoiseLite_ifwin")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5fx0j"]
-noise_type = 3
-fractal_octaves = 2
-domain_warp_amplitude = 5.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_24v7j"]
-seamless = true
-seamless_blend_skirt = 0.25
-noise = SubResource("FastNoiseLite_5fx0j")
+[ext_resource type="Texture2D" uid="uid://3bp1ydk01id2" path="res://Shaders/DistortionTexture.tres" id="2_j823s"]
+[ext_resource type="Texture2D" uid="uid://geqytyiyeff2" path="res://Shaders/SurfaceTexture.tres" id="3_1x3n5"]
+[ext_resource type="Texture2D" uid="uid://cqoen2xgfxc5n" path="res://Shaders/WaveTexture.tres" id="4_uiqc4"]
 
 [resource]
 render_priority = 0
@@ -48,15 +17,16 @@ shader_parameter/beer_factor = 0.8
 shader_parameter/foam_distance = 0.01
 shader_parameter/foam_max_distance = 0.4
 shader_parameter/foam_min_distance = 0.04
-shader_parameter/foam_color = Color(0.713726, 1, 0.815686, 1)
+shader_parameter/foam_color = Color(0.713726, 1, 0.815686, 0.682353)
 shader_parameter/surface_noise_tiling = Vector2(3, 4)
 shader_parameter/surface_noise_scroll = Vector3(0.03, 0.03, 0)
 shader_parameter/surface_noise_cutoff = 0.8
 shader_parameter/surface_distortion_amount = 0.27
+shader_parameter/fresnel_color = Color(0.4, 1, 0, 1)
 shader_parameter/_DepthGradientShallow = Color(0.32549, 0.807843, 0.74902, 0.72549)
 shader_parameter/_DepthGradientDeep = Color(0.0784314, 0.54902, 0.490196, 0.74902)
 shader_parameter/_DepthMaxDistance = 1.0
 shader_parameter/_DepthFactor = 1.0
-shader_parameter/wave = SubResource("NoiseTexture2D_24v7j")
-shader_parameter/surfaceNoise = SubResource("NoiseTexture2D_ciyvp")
-shader_parameter/distortNoise = SubResource("NoiseTexture2D_ksdx8")
+shader_parameter/wave = ExtResource("4_uiqc4")
+shader_parameter/surfaceNoise = ExtResource("3_1x3n5")
+shader_parameter/distortNoise = ExtResource("2_j823s")
