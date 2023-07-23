@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhuy1vhoxojfr"]
+[gd_scene load_steps=10 format=3 uid="uid://dhuy1vhoxojfr"]
 
 [ext_resource type="PackedScene" uid="uid://cyarp1pfkk4eu" path="res://Scenes/Player/Player.tscn" id="1_02s70"]
 [ext_resource type="Material" uid="uid://ck4gxmbbrru3r" path="res://Shaders/Sky.tres" id="1_bjwym"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_lhmn2"]
 [ext_resource type="Texture2D" uid="uid://dopter5yp23ta" path="res://Assets/Textures/Prototype Pack/PNG/Dark/texture_02.png" id="2_rsguk"]
 [ext_resource type="PackedScene" uid="uid://bdktva12uo464" path="res://Scenes/WaterPlane.tscn" id="3_f7xfd"]
 [ext_resource type="PackedScene" uid="uid://doncllsbis5rj" path="res://Scenes/IslandSmallPond.tscn" id="4_hjktw"]
@@ -17,6 +18,7 @@ sky = SubResource("Sky_3kbbq")
 albedo_texture = ExtResource("2_rsguk")
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_lhmn2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a4m0u")
