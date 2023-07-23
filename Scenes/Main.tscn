@@ -19,13 +19,20 @@ albedo_texture = ExtResource("2_rsguk")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_lhmn2")
-
-[node name="Sun" type="DirectionalLight3D" parent="."]
-
-[node name="Moon" type="DirectionalLight3D" parent="."]
+day_time = 8.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a4m0u")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.920809, 0, -0.390014, 0.195007, 0.866025, 0.460404, 0.337762, -0.5, 0.797444, 0, 0, 0)
+rotation_order = 4
+light_energy = 0.0
+
+[node name="Moon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965201, 0, -0.261509, 0.254038, 0.237327, 0.937625, 0.0620631, -0.97143, 0.229068, 0, 0, 0)
+rotation_order = 4
+light_energy = 0.0
 
 [node name="Player" parent="." instance=ExtResource("1_02s70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38937, 0)

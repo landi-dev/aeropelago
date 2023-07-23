@@ -1,7 +1,7 @@
 shader_type spatial;
 render_mode specular_toon;
 
-uniform float metallic : hint_range(0.0, 1.0) = 0;
+uniform float metallic : hint_range(0.0, 1.0) = 0.0;
 uniform float roughness : hint_range(0.0, 1.0) = 0.01;
 uniform sampler2D wave;
 uniform float noise_scale = 10.0;
@@ -109,7 +109,7 @@ void fragment()
 	METALLIC = metallic;
 	ALBEDO = color.rgb;
 	ALPHA = color.a;
-	RIM = 1.0;
+	RIM = 0.1;
 	
 	vec3 normal = texture(normal_map, world_pos.xz * TIME * time_scale * vec2(0.003, 0.003)).rgb;
 	NORMAL_MAP = normal;

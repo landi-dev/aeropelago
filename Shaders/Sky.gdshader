@@ -17,7 +17,7 @@ group_uniforms horizon;
 
 group_uniforms sun; // First DirectionalLight3D will be the sun
 	uniform vec3 sun_color : source_color = vec3( 10.0, 8.0, 1.0 );
-	uniform vec3 sun_sunset_color : source_color = vec3( 10.0, 0.0, 0.0 );
+	uniform vec3 sun_sunset_color : source_color = vec3( 10.0, 0.0, 1.0);
 	uniform float sun_size : hint_range( 0.01, 1.0 ) = 0.2;
 	uniform float sun_blur : hint_range( 0.01, 20.0 ) = 10.0;
 

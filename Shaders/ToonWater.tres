@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cqoen2xgfxc5n" path="res://Shaders/WaveTexture.tres" id="4_uiqc4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ac2l8"]
-frequency = 0.002
+noise_type = 3
+frequency = 0.003
+fractal_type = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xl6v5"]
 seamless = true
