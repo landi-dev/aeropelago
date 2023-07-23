@@ -1,13 +1,19 @@
+<<<<<<< Updated upstream
+[gd_scene load_steps=4 format=3 uid="uid://dljdrg3cphrdx"]
+=======
 [gd_scene load_steps=12 format=3 uid="uid://dhuy1vhoxojfr"]
-[gd_scene load_steps=6 format=3 uid="uid://dhuy1vhoxojfr"]
+>>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://cyarp1pfkk4eu" path="res://Scenes/Player/Player.tscn" id="1_02s70"]
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_i0l3i"]
 [ext_resource type="Shader" path="res://Shaders/Sky.gdshader" id="1_mcans"]
 [ext_resource type="Texture2D" uid="uid://dopter5yp23ta" path="res://Assets/Textures/Prototype Pack/PNG/Dark/texture_02.png" id="2_rsguk"]
+<<<<<<< Updated upstream
+=======
 [ext_resource type="PackedScene" uid="uid://bdktva12uo464" path="res://Scenes/WaterPlane.tscn" id="3_f7xfd"]
 [ext_resource type="Texture2D" uid="uid://6qxulk4x3jy3" path="res://Assets/Textures/stars.png" id="3_neq1w"]
 [ext_resource type="PackedScene" uid="uid://doncllsbis5rj" path="res://Scenes/IslandSmallPond.tscn" id="4_hjktw"]
+>>>>>>> Stashed changes
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nnja6"]
 shader = ExtResource("1_mcans")
@@ -49,8 +55,6 @@ radiance_size = 4
 [sub_resource type="Environment" id="Environment_wx3jw"]
 background_mode = 2
 sky = SubResource("Sky_43s8n")
-[ext_resource type="PackedScene" uid="uid://bdktva12uo464" path="res://Scenes/WaterPlane.tscn" id="3_f7xfd"]
-[ext_resource type="PackedScene" uid="uid://doncllsbis5rj" path="res://Scenes/IslandSmallPond.tscn" id="4_hjktw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr3fo"]
 albedo_texture = ExtResource("2_rsguk")
@@ -75,6 +79,15 @@ light_energy = 0.0
 [node name="Player" parent="." instance=ExtResource("1_02s70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38937, 0)
 
+<<<<<<< Updated upstream
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 25, 0)
+light_color = Color(1, 0.994, 0.99, 1)
+shadow_enabled = true
+shadow_opacity = 0.5
+
+=======
+>>>>>>> Stashed changes
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
 collision_mask = 3
@@ -84,10 +97,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(25, 2, 25)
 material = SubResource("StandardMaterial3D_yr3fo")
 
+[node name="Floor2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 4.99122)
+size = Vector3(25, 0.25, 5)
+material = SubResource("StandardMaterial3D_yr3fo")
+
 [node name="Floor3" type="CSGBox3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9.961)
 size = Vector3(25, 1, 5)
 material = SubResource("StandardMaterial3D_yr3fo")
+<<<<<<< Updated upstream
+=======
 
 [node name="WaterPlane" parent="." instance=ExtResource("3_f7xfd")]
 transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, 0, 0.394161, 0)
@@ -97,3 +117,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66491, 1.6467, 9.73946)
 
 [node name="island_sm" parent="." instance=ExtResource("4_hjktw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156487, -6.9123, 40.0885)
+>>>>>>> Stashed changes
