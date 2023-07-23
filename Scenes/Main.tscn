@@ -1,22 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhuy1vhoxojfr"]
+[gd_scene load_steps=10 format=3 uid="uid://dhuy1vhoxojfr"]
 
 [ext_resource type="PackedScene" uid="uid://cyarp1pfkk4eu" path="res://Scenes/Player/Player.tscn" id="1_02s70"]
+[ext_resource type="Material" uid="uid://ck4gxmbbrru3r" path="res://Shaders/Sky.tres" id="1_bjwym"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_lhmn2"]
 [ext_resource type="Texture2D" uid="uid://dopter5yp23ta" path="res://Assets/Textures/Prototype Pack/PNG/Dark/texture_02.png" id="2_rsguk"]
 [ext_resource type="PackedScene" uid="uid://bdktva12uo464" path="res://Scenes/WaterPlane.tscn" id="3_f7xfd"]
 [ext_resource type="PackedScene" uid="uid://doncllsbis5rj" path="res://Scenes/IslandSmallPond.tscn" id="4_hjktw"]
+
+[sub_resource type="Sky" id="Sky_3kbbq"]
+sky_material = ExtResource("1_bjwym")
+
+[sub_resource type="Environment" id="Environment_a4m0u"]
+background_mode = 2
+sky = SubResource("Sky_3kbbq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr3fo"]
 albedo_texture = ExtResource("2_rsguk")
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_lhmn2")
+day_time = 8.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a4m0u")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.920809, 0, -0.390014, 0.195007, 0.866025, 0.460404, 0.337762, -0.5, 0.797444, 0, 0, 0)
+rotation_order = 4
+light_energy = 0.0
+
+[node name="Moon" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965201, 0, -0.261509, 0.254038, 0.237327, 0.937625, 0.0620631, -0.97143, 0.229068, 0, 0, 0)
+rotation_order = 4
+light_energy = 0.0
 
 [node name="Player" parent="." instance=ExtResource("1_02s70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38937, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.399453, 0.916754, 0, -0.916754, 0.399453, 0, 5.12197, 9.40531)
-shadow_enabled = true
-shadow_opacity = 0.5
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
