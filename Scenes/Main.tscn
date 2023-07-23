@@ -13,11 +13,6 @@ albedo_texture = ExtResource("2_rsguk")
 [node name="Player" parent="." instance=ExtResource("1_02s70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38937, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.399453, 0.916754, 0, -0.916754, 0.399453, 0, 5.12197, 9.40531)
-shadow_enabled = true
-shadow_opacity = 0.5
-
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 use_collision = true
 collision_mask = 3
