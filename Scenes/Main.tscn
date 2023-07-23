@@ -1,9 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhuy1vhoxojfr"]
+[gd_scene load_steps=9 format=3 uid="uid://dhuy1vhoxojfr"]
 
 [ext_resource type="PackedScene" uid="uid://cyarp1pfkk4eu" path="res://Scenes/Player/Player.tscn" id="1_02s70"]
+[ext_resource type="Material" uid="uid://ck4gxmbbrru3r" path="res://Shaders/Sky.tres" id="1_bjwym"]
 [ext_resource type="Texture2D" uid="uid://dopter5yp23ta" path="res://Assets/Textures/Prototype Pack/PNG/Dark/texture_02.png" id="2_rsguk"]
 [ext_resource type="PackedScene" uid="uid://bdktva12uo464" path="res://Scenes/WaterPlane.tscn" id="3_f7xfd"]
 [ext_resource type="PackedScene" uid="uid://doncllsbis5rj" path="res://Scenes/IslandSmallPond.tscn" id="4_hjktw"]
+
+[sub_resource type="Sky" id="Sky_3kbbq"]
+sky_material = ExtResource("1_bjwym")
+
+[sub_resource type="Environment" id="Environment_a4m0u"]
+background_mode = 2
+sky = SubResource("Sky_3kbbq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr3fo"]
 albedo_texture = ExtResource("2_rsguk")
@@ -11,6 +19,7 @@ albedo_texture = ExtResource("2_rsguk")
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a4m0u")
 
 [node name="Player" parent="." instance=ExtResource("1_02s70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38937, 0)
