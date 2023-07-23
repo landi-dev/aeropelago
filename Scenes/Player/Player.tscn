@@ -10,8 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/States/FallState.gd" id="8_xsxk4"]
 [ext_resource type="Script" path="res://Scripts/Player/States/LandState.gd" id="9_keutr"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_rlkvu"]
-height = 3.5
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oylxc"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_rigg6")
@@ -21,8 +20,8 @@ target_position = Vector3(0, -1.5, 0)
 collide_with_areas = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
-shape = SubResource("CylinderShape3D_rlkvu")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_oylxc")
 
 [node name="Model" parent="." instance=ExtResource("1_dsu1l")]
 
