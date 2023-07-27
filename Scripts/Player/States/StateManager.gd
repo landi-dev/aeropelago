@@ -21,7 +21,6 @@ func init(player : Player) -> void:
 	for child in get_children():
 		
 		child.player = player;
-		print(child.name, ": ", child.player == null);
 	
 	# Initialize with a default state of idle
 	change_state(BaseState.STATE.IDLE);
@@ -50,5 +49,3 @@ func change_state(new_state : int) -> void:
 	
 	current_state = states[new_state];
 	current_state.enter();
-	
-	print(current_state.name)
