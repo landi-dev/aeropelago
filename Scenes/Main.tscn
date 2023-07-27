@@ -1,58 +1,42 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhuy1vhoxojfr"]
+[gd_scene load_steps=7 format=3 uid="uid://dhuy1vhoxojfr"]
 
 [ext_resource type="PackedScene" uid="uid://cyarp1pfkk4eu" path="res://Scenes/Player/Player.tscn" id="1_02s70"]
-[ext_resource type="Material" uid="uid://ck4gxmbbrru3r" path="res://Shaders/Sky.tres" id="1_bjwym"]
-[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_lhmn2"]
+[ext_resource type="PackedScene" uid="uid://dciw35x2j1s6n" path="res://Scenes/Sky.tscn" id="1_dbc1k"]
 [ext_resource type="Texture2D" uid="uid://dopter5yp23ta" path="res://Assets/Textures/Prototype Pack/PNG/Dark/texture_02.png" id="2_rsguk"]
 [ext_resource type="PackedScene" uid="uid://bdktva12uo464" path="res://Scenes/WaterPlane.tscn" id="3_f7xfd"]
 [ext_resource type="PackedScene" uid="uid://doncllsbis5rj" path="res://Scenes/IslandSmallPond.tscn" id="4_hjktw"]
-
-[sub_resource type="Sky" id="Sky_3kbbq"]
-sky_material = ExtResource("1_bjwym")
-
-[sub_resource type="Environment" id="Environment_a4m0u"]
-background_mode = 2
-sky = SubResource("Sky_3kbbq")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr3fo"]
 albedo_texture = ExtResource("2_rsguk")
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_lhmn2")
-day_time = 14.0
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_a4m0u")
+[node name="Overworld" type="Node3D" parent="."]
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.920949, 0, -0.389682, 0.337475, -0.5, 0.797565, -0.194841, -0.866025, -0.460474, 0, 0, 0)
-rotation_order = 4
-light_energy = 0.0
+[node name="Sky" parent="Overworld" instance=ExtResource("1_dbc1k")]
 
-[node name="Moon" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.957016, 0, 0.290034, 0.05374, 0.982684, -0.177324, -0.285012, 0.185289, 0.940445, 0, 0, 0)
-rotation_order = 4
-light_energy = 0.0
-
-[node name="Player" parent="." instance=ExtResource("1_02s70")]
+[node name="Player" parent="Overworld" instance=ExtResource("1_02s70")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38937, 0)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="Environment" type="Node3D" parent="Overworld"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Overworld/Environment"]
 use_collision = true
 collision_mask = 3
 
-[node name="Floor" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Floor" type="CSGBox3D" parent="Overworld/Environment/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(25, 2, 25)
 material = SubResource("StandardMaterial3D_yr3fo")
 
-[node name="Floor3" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="Floor3" type="CSGBox3D" parent="Overworld/Environment/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9.961)
 size = Vector3(25, 1, 5)
 material = SubResource("StandardMaterial3D_yr3fo")
 
-[node name="WaterPlane" parent="." instance=ExtResource("3_f7xfd")]
+[node name="WaterPlane" parent="Overworld/Environment" instance=ExtResource("3_f7xfd")]
 transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, 0, 0.394161, 0)
+skeleton = NodePath("../../..")
 
-[node name="island_sm" parent="." instance=ExtResource("4_hjktw")]
+[node name="island_sm" parent="Overworld/Environment" instance=ExtResource("4_hjktw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156487, -6.9123, 40.0885)
