@@ -1,42 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhuy1vhoxojfr"]
+[gd_scene load_steps=2 format=3 uid="uid://dhuy1vhoxojfr"]
 
-[ext_resource type="PackedScene" uid="uid://cyarp1pfkk4eu" path="res://Scenes/Player/Player.tscn" id="1_02s70"]
-[ext_resource type="PackedScene" uid="uid://dciw35x2j1s6n" path="res://Scenes/Sky.tscn" id="1_dbc1k"]
-[ext_resource type="Texture2D" uid="uid://dopter5yp23ta" path="res://Assets/Textures/Prototype Pack/PNG/Dark/texture_02.png" id="2_rsguk"]
-[ext_resource type="PackedScene" uid="uid://bdktva12uo464" path="res://Scenes/WaterPlane.tscn" id="3_f7xfd"]
-[ext_resource type="PackedScene" uid="uid://doncllsbis5rj" path="res://Scenes/IslandSmallPond.tscn" id="4_hjktw"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr3fo"]
-albedo_texture = ExtResource("2_rsguk")
+[ext_resource type="PackedScene" uid="uid://jgudyai1soeb" path="res://Scenes/Overworld.tscn" id="1_g4uj5"]
 
 [node name="Main" type="Node3D"]
 
-[node name="Overworld" type="Node3D" parent="."]
-
-[node name="Sky" parent="Overworld" instance=ExtResource("1_dbc1k")]
-
-[node name="Player" parent="Overworld" instance=ExtResource("1_02s70")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38937, 0)
-
-[node name="Environment" type="Node3D" parent="Overworld"]
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Overworld/Environment"]
-use_collision = true
-collision_mask = 3
-
-[node name="Floor" type="CSGBox3D" parent="Overworld/Environment/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-size = Vector3(25, 2, 25)
-material = SubResource("StandardMaterial3D_yr3fo")
-
-[node name="Floor3" type="CSGBox3D" parent="Overworld/Environment/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9.961)
-size = Vector3(25, 1, 5)
-material = SubResource("StandardMaterial3D_yr3fo")
-
-[node name="WaterPlane" parent="Overworld/Environment" instance=ExtResource("3_f7xfd")]
-transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, 0, 0.394161, 0)
-skeleton = NodePath("../../..")
-
-[node name="island_sm" parent="Overworld/Environment" instance=ExtResource("4_hjktw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156487, -6.9123, 40.0885)
+[node name="Overworld" parent="." instance=ExtResource("1_g4uj5")]
