@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://jgudyai1soeb"]
 
-[ext_resource type="PackedScene" uid="uid://dciw35x2j1s6n" path="res://Scenes/Sky.tscn" id="1_0bpk0"]
+[ext_resource type="PackedScene" path="res://Scenes/Sky.tscn" id="1_0bpk0"]
 [ext_resource type="PackedScene" uid="uid://cyarp1pfkk4eu" path="res://Scenes/Player/Player.tscn" id="2_ee2h8"]
 [ext_resource type="Texture2D" uid="uid://dopter5yp23ta" path="res://Assets/Textures/Prototype Pack/PNG/Dark/texture_02.png" id="3_ygh64"]
 [ext_resource type="PackedScene" uid="uid://bdktva12uo464" path="res://Scenes/WaterPlane.tscn" id="4_hk1j6"]
