@@ -78,7 +78,7 @@ const DAYS_IN_YEAR : int = 365
 @onready var moon : DirectionalLight3D = $Moon
 
 func _ready() -> void :
-	day_time = 8.0;
+	day_time = 14.0;
 	if is_instance_valid( sun ) :
 		sun.position = Vector3( 0.0, 0.0, 0.0 )
 		sun.rotation = Vector3( 0.0, 0.0, 0.0 )

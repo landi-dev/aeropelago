@@ -6,7 +6,7 @@ extends SpringArm3D;
 @export var mouse_sensitivity : float = 0.1; # 0.05 : slow; 0.10 : normal; 0.25 : fast
 @export var scroll_sensitivity : float = 0.1;
 
-var pitch_max : float = 0;
+var pitch_max : float = 18.0;
 var pitch_min : float = -40.0;
 var acceleration : float = 15.0;
 

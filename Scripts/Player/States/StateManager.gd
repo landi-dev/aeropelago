@@ -50,5 +50,3 @@ func change_state(new_state : int) -> void:
 	
 	current_state = states[new_state];
 	current_state.enter();
-	
-	print(current_state.name)
