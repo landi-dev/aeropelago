@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://jgudyai1soeb"]
+
+[ext_resource type="PackedScene" uid="uid://dciw35x2j1s6n" path="res://Scenes/Sky.tscn" id="1_0bpk0"]
+[ext_resource type="PackedScene" uid="uid://cyarp1pfkk4eu" path="res://Scenes/Player/Player.tscn" id="2_ee2h8"]
+[ext_resource type="Texture2D" uid="uid://dopter5yp23ta" path="res://Assets/Textures/Prototype Pack/PNG/Dark/texture_02.png" id="3_ygh64"]
+[ext_resource type="PackedScene" uid="uid://bdktva12uo464" path="res://Scenes/WaterPlane.tscn" id="4_hk1j6"]
+[ext_resource type="PackedScene" uid="uid://doncllsbis5rj" path="res://Scenes/IslandSmallPond.tscn" id="5_42kxa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr3fo"]
+albedo_texture = ExtResource("3_ygh64")
+
+[node name="Overworld" type="Node3D"]
+
+[node name="Sky" parent="." instance=ExtResource("1_0bpk0")]
+
+[node name="Player" parent="." instance=ExtResource("2_ee2h8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.38937, 0)
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Environment"]
+use_collision = true
+collision_mask = 3
+
+[node name="Floor" type="CSGBox3D" parent="Environment/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+size = Vector3(25, 2, 25)
+material = SubResource("StandardMaterial3D_yr3fo")
+
+[node name="Floor3" type="CSGBox3D" parent="Environment/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 9.961)
+size = Vector3(25, 1, 5)
+material = SubResource("StandardMaterial3D_yr3fo")
+
+[node name="WaterPlane" parent="Environment" instance=ExtResource("4_hk1j6")]
+transform = Transform3D(25, 0, 0, 0, 1, 0, 0, 0, 25, 0, 0.394161, 0)
+skeleton = NodePath("../../..")
+
+[node name="island_sm" parent="Environment" instance=ExtResource("5_42kxa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.156487, -6.9123, 40.0885)

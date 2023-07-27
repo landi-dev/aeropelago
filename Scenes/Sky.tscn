@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dciw35x2j1s6n"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Material" uid="uid://ck4gxmbbrru3r" path="res://Shaders/Sky.tres" id="1_ass06"]
-[ext_resource type="Script" path="res://Scripts/Overworld.gd" id="2_d3ja6"]
+[ext_resource type="Script" path="res://Scripts/Sky.gd" id="2_d3ja6"]
 
 [sub_resource type="Sky" id="Sky_3kbbq"]
 sky_material = ExtResource("1_ass06")
