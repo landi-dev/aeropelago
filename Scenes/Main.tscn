@@ -4,3 +4,5 @@
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_lhmn2")
+
+[node name="TestChild" type="Node3D" parent="."]
