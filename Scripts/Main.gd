@@ -9,7 +9,7 @@ func _ready():
 func start_game():
 	
 	print("Starting game...");
-	var change_scene_err : Error = await change_scene(start_screen_path, false);
+	var change_scene_err : Error = change_scene(start_screen_path);
 	
 	if change_scene_err == ERR_FILE_NOT_FOUND:
 		
@@ -22,15 +22,9 @@ func start_game():
 		return;
 	
 
-func change_scene(file_path : String, transition : bool = true) -> Error:
+func change_scene(file_path : String) -> Error:
 	
-	if transition:
-		
-		await SceneTransition.transition_in();
-	
-	else:
-		
-		print("Changing scene to ", file_path, "...");
+	print("Changing scene to ", file_path, "...");
 	
 	if not FileAccess.file_exists(file_path):
 		
@@ -43,10 +37,6 @@ func change_scene(file_path : String, transition : bool = true) -> Error:
 	
 	self.add_child(scene_instance);
 	scene_instance.init();
-	
-	if transition:
-		
-		await SceneTransition.transition_out();
 	
 	return OK;
 

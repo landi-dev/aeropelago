@@ -10,4 +10,4 @@ func init() -> Error:
 
 func _unhandled_key_input(_event) -> void:
 	
-	main.change_scene(main_menu_screen_path);
+	SceneTransition.change_scene(main_menu_screen_path);
