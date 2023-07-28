@@ -21,6 +21,7 @@ func start_game():
 		printerr(get_stack()[0]["source"], ":", get_stack()[0]["line"], " - ", "StartScreen.tscn couldn't be initialized.");
 		return;
 	
+	SettingsManager.init();
 
 func change_scene(file_path : String) -> Error:
 	
@@ -59,3 +60,5 @@ func clear_children() -> void:
 	for child in get_children():
 		
 		child.queue_free();
+
+

@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SceneTransition="*res://Scenes/UI/SceneTransition.tscn"
+SettingsManager="*res://Scripts/Resources/SettingsManager.gd"
 
 [editor_plugins]
 
