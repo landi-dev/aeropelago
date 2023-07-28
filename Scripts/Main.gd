@@ -9,7 +9,7 @@ func _ready():
 func start_game():
 	
 	print("Starting game...");
-	var change_scene_err : Error = change_scene(start_screen_path);
+	var change_scene_err : Error = await change_scene(start_screen_path, false);
 	
 	if change_scene_err == ERR_FILE_NOT_FOUND:
 		
@@ -22,15 +22,15 @@ func start_game():
 		return;
 	
 
-func change_scene(file_path : String, node_name : String = "") -> Error:
+func change_scene(file_path : String, transition : bool = true) -> Error:
 	
-	if node_name:
+	if transition:
 		
-		print("Changing scene to ", file_path, " with name ", node_name, "...");
+		await SceneTransition.transition_in();
 	
 	else:
 		
-		print("Changing scene to ", file_path, " with default name...");
+		print("Changing scene to ", file_path, "...");
 	
 	if not FileAccess.file_exists(file_path):
 		
@@ -40,22 +40,19 @@ func change_scene(file_path : String, node_name : String = "") -> Error:
 	
 	var scene = load(file_path);
 	var scene_instance = scene.instantiate();
-	if node_name:
-		
-		scene_instance.set_name(node_name); 
 	
 	self.add_child(scene_instance);
-	return scene_instance.init();
+	scene_instance.init();
+	
+	if transition:
+		
+		await SceneTransition.transition_out();
+	
+	return OK;
 
-func add_scene(file_path : String, node_name : String = "", parent : Node = self):
+func add_scene(file_path : String, parent : Node = self):
 	
-	if node_name:
-		
-		print("Adding scene ", file_path, " to parent " , parent, " with name ", node_name, "...");
-	
-	else:
-		
-		print("Adding scene ", file_path, " to parent ", parent, " with default name...");
+	print("Adding scene ", file_path, " to parent ", parent, "...");
 	
 	if not FileAccess.file_exists(file_path):
 		
@@ -63,9 +60,6 @@ func add_scene(file_path : String, node_name : String = "", parent : Node = self
 	
 	var scene = load(file_path);
 	var scene_instance = scene.instantiate();
-	if node_name:
-		
-		scene_instance.set_name(node_name); 
 	
 	parent.add_child(scene_instance);
 	return scene_instance.init();

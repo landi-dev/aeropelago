@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://brwe8jcuxawsr"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Screens/MainMenuScreen.gd" id="1_m8yvu"]
+[ext_resource type="Texture2D" uid="uid://d4mlnf3oa4jn4" path="res://Assets/chasm sketches.png" id="2_j6sbb"]
+
+[node name="MainMenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m8yvu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j6sbb")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 288
+theme_override_constants/margin_right = 288
+
+[node name="Content" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MarginContainer/Content"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="NewGameButton" type="Button" parent="MarginContainer/Content/Buttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "New Game	"
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/Content/Buttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Continue
+"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/Content/Buttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/Content/Buttons"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit
+"
