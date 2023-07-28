@@ -1,12 +1,23 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://duls5kb5laoh5"]
+[gd_resource type="Resource" script_class="Settings" load_steps=2 format=3 uid="uid://duls5kb5laoh5"]
 
 [ext_resource type="Script" path="res://Scripts/Resources/Settings.gd" id="1_v0p4h"]
 
 [resource]
 script = ExtResource("1_v0p4h")
-mouse_sensitivity = 0.0
+mouse_sensitivity = 0
+anti_ailiasing = 0
+textures = 0
+particles = 0
+bloom = false
+lense_flare = false
+gamma = 0
+resolution = Array[int]([])
+window_mode = 0
+vsync = false
+fps_lock = false
+fps_cap = 0
 subtitles = false
-difficulty = ""
+difficulty = 0
 aim_assist = false
 hints = false
 minimap = false
@@ -14,5 +25,9 @@ fov = 0
 motion_blur = false
 camera_bob = false
 camera_shake = false
-master_volume = 0.0
+master_volume = 0
 music_volume = 0
+sfx_volume = 0
+characters_volume = 0
+enemies_volume = 0
+environment_volume = 0
