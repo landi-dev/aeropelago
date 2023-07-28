@@ -5,13 +5,14 @@ class_name Settings;
 @export var key_bindings : Resource;
 @export_range(1, 25, 1) var mouse_sensitivity : int;
 # Graphics and Performance
+@export var quality : int # 0 : LOWEST, 1 : NORMAL, 2 : HIGH, 3 : BEST, 4 : CUSTOM
 @export var anti_ailiasing : int;
 @export var textures : int;
 @export var particles : int;
 @export var bloom : bool;
 @export var lense_flare : bool;
 @export_range(25, 100, 1) var gamma : int;
-@export var resolution : Array[int];	# 640x480 (4:3), 800x600 (4:3), 1024x768 (4:3), 
+@export var resolution : Vector2;	# 640x480 (4:3), 800x600 (4:3), 1024x768 (4:3), 
 										# 1280x1024(5:4), 1280x720 (16:9), 1366x768(16:9), 
 										# 1600x900(16:9), 1920x1080 (16:9), 2560x1440 (16:9), 
 										# 1280x800 (16:10), 1440x900 (16:10), 1680x1050 (16:10), 
@@ -41,9 +42,9 @@ class_name Settings;
 @export_range(0, 100, 1) var environment_volume : int;
 
 func _init(s_key_bindings : Resource = null, 
-	s_mouse_sensitivity : int =  15, s_anti_aliasing : int = 1, 
+	s_mouse_sensitivity : int =  15, s_quality : int = 1, s_anti_aliasing : int = 1, 
 	s_textures : int = 1,  s_particles : int = 1, s_bloom : bool = true, 
-	s_lense_flare : bool = true, s_gamma : int = 50, s_resolution : Array[int] = [1920, 1080], 
+	s_lense_flare : bool = true, s_gamma : int = 50, s_resolution : Vector2 = Vector2(1280, 720), 
 	s_window_mode : int = 2, s_vsync : bool = true, s_fps_lock : bool = true, 
 	s_fps_cap : int = 60, s_subtitles : bool = false, s_difficulty : int = 1, 
 	s_aim_assist : bool = true, s_hints : bool = true, s_minimap : bool = true, s_fov : int = 90, 
@@ -55,6 +56,7 @@ func _init(s_key_bindings : Resource = null,
 	key_bindings = s_key_bindings;
 	mouse_sensitivity = s_mouse_sensitivity;
 	
+	quality = s_quality;
 	anti_ailiasing = s_anti_aliasing;
 	textures = s_textures;
 	particles = s_particles; 

@@ -3,14 +3,14 @@ extends Control;
 @onready var main = get_node("/root/Main");
 @onready var new_game_button = get_node("MarginContainer/Content/Buttons/NewGameButton");
 @onready var continue_button = get_node("MarginContainer/Content/Buttons/ContinueButton");
-@onready var options_button = get_node("MarginContainer/Content/Buttons/OptionsButton");
+@onready var settings_button = get_node("MarginContainer/Content/Buttons/SettingsButton");
 @onready var quit_button = get_node("MarginContainer/Content/Buttons/QuitButton");
 
 func init() -> Error:
 	
 	new_game_button.pressed.connect(_on_NewGameButton_pressed);
 	continue_button.pressed.connect(_on_ContinueButton_pressed);
-	options_button.pressed.connect(_on_OptionsButton_pressed);
+	settings_button.pressed.connect(_on_SettingsButton_pressed);
 	quit_button.pressed.connect(_on_QuitButton_pressed);
 	
 	return OK;
@@ -28,9 +28,9 @@ func _on_ContinueButton_pressed() -> Error:
 	
 	return OK;
 
-func _on_OptionsButton_pressed() -> Error:
+func _on_SettingsButton_pressed() -> Error:
 	
-	print("Options!");
+	print("Settings!");
 	
 	return OK;
 

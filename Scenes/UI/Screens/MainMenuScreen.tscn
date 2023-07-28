@@ -53,7 +53,7 @@ size_flags_vertical = 3
 text = "Continue
 "
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/Content/Buttons"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/Content/Buttons"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 3
